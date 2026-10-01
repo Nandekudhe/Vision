@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Product Store</title>
+<meta name="description" content="Premium digital templates.">
+<meta name="theme-color" content="#07070b">
+<link rel="stylesheet" href="home.css">
+<noscript><style>.reveal,.clip{opacity:1!important;clip-path:none!important}</style></noscript>
+</head>
+<body>
+<div id="cursor" class="cursor" aria-hidden="true"></div>
+
+<!-- 1. NAVBAR -->
+<header class="nav" id="nav"><div class="wrap">
+  <a href="#home" class="brand"><i class="logo"><i class="logo"><img src="logo.png" alt="Logo"></i>
+</i><span data-cfg="brand"></span></a>
+  <nav class="links" id="links" aria-label="Main">
+    <a href="#home">Home</a><a href="#product">Product</a><a href="#inside">What's Inside</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-r">
+    
+   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main>
+<!-- 2. HERO: PRODUCT FIRST -->
+<section class="hero" id="home">
+  <i class="glow g1"></i><i class="glow g2"></i>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="badge" data-cfg="badge"></span>
+      <h1 id="heroTitle" aria-label="Headline"></h1>
+      <p class="lead" data-cfg="description"></p>
+      <div class="price-row"><b class="price" data-price></b><s class="orig" data-orig></s><span class="off" data-off></span></div>
+      <div class="cta-row">
+        <a class="btn btn-g magnetic" href="#product">Explore Product</a>
+      </div>
+    </div>
+    <div class="stage tilt" data-speed="-.05" aria-label="Product preview">
+      <i class="ring"></i>
+      <div class="stage-in">
+        <!-- REPLACE: set images.hero3 in script.js (or put an <img> inside the div) -->
+        <div class="hc hc3"><div class="frame" style="--ar:3/4" data-img="hero3" data-label="PREVIEW IMAGE"></div></div>
+        <!-- REPLACE WITH MAIN PRODUCT IMAGE: images.hero1 -->
+        <div class="hc hc1"><div class="frame" style="--ar:3/4" data-img="hero1" data-label="PRODUCT IMAGE"></div></div>
+        <!-- REPLACE WITH TEMPLATE PREVIEW: images.hero2 -->
+        <div class="hc hc2"><div class="frame" style="--ar:4/5" data-img="hero2" data-label="TEMPLATE PREVIEW"></div></div>
+        <span class="chip">Instant digital access</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRUST STRIP (edit in config.trust) -->
+<div class="trust"><div class="wrap" id="trust"></div></div>
+
+<!-- 4. PRODUCT SHOWCASE / GALLERY -->
+<section id="product">
+  <div class="wrap">
+    <div class="head reveal"><h2>See the product</h2><p class="mu">Click any preview to redirect.</p></div>
+    <div class="gal">
+      <div class="viewer tilt reveal" id="viewer" role="button" tabindex="0" aria-label="Open preview"></div>
+      <button class="arr prev" id="prev" aria-label="Previous">&#8249;</button>
+      <button class="arr next" id="next" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+</section>
+
+<!-- 5. WHAT'S INSIDE -->
+<section id="inside" class="alt">
+  <div class="wrap">
+    <div class="head reveal"><h2>What's inside</h2><p class="mu">Everything included with your purchase.</p></div>
+    <div class="grid" id="featureGrid"></div>
+  </div>
+</section>
+
+
+
+<!-- 7. HOW IT WORKS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="head reveal"><h2>How it works</h2></div>
+    <div class="steps" id="steps"></div>
+  </div>
+</section>
+
+
+
+<!-- 9. CREATOR -->
+<section class="alt">
+  <div class="wrap creator">
+    <!-- REPLACE WITH PROFILE IMAGE: images.creator -->
+    <div class="avatar reveal"><div class="frame" style="--ar:1" data-img="creator" data-label="PROFILE IMAGE"></div></div>
+    <div class="reveal">
+      <h2>Hi, I'm <span data-cfg="creatorName"></span></h2>
+      <p class="lead" data-cfg="creatorBio"></p>
+      <div class="cta-row">
+        <a class="btn btn-g" data-link="instagram" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-g" data-link="youtube" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. TESTIMONIALS (placeholders — replace with real ones in config.testimonials) -->
+<section>
+  <div class="wrap head reveal"><h2>What buyers say</h2></div>
+  <div class="mq"><div class="mq-t" id="mq"></div></div>
+</section>
+
+<!-- 11. PRICING -->
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <div class="price-card reveal">
+      <h3 data-cfg="productName"></h3>
+      <div class="price-row c"><b class="price big" data-price></b><s class="orig" data-orig></s><span class="off" data-off></span></div>
+      <ul class="incl" id="incl"></ul>
+      <a class="btn btn-p magnetic" href="product.html">Buy Now</a>
+
+      <p class="mu small" data-cfg="priceNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FAQ -->
+<section id="faq">
+  <div class="wrap narrow">
+    <div class="head reveal"><h2>Questions</h2></div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- 13. FINAL CTA -->
+<section>
+  <div class="wrap">
+    <div class="final reveal">
+      <div>
+        <h2 data-cfg="finalHeadline"></h2>
+        <p class="lead" data-cfg="finalText"></p>
+        <a class="btn btn-p magnetic" href="https://drive.google.com/drive/folders/1ZWvD95a6S3A8ArGGLbLY8RDTaAvFhZdc" target="_blank" rel="noopener">Get Now</a>
+
+      </div>
+      <!-- REPLACE WITH PRODUCT IMAGE: images.final -->
+      <div class="fin-img"><div class="frame" style="--ar:4/3" data-img="final" data-label="PRODUCT IMAGE"></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 14. FOOTER -->
+<footer id="contact"><div class="wrap foot">
+  <div><b class="brand" data-cfg="brand"></b><p class="mu small">&copy; <span id="yr"></span> All rights reserved.</p></div>
+  <nav aria-label="Footer"><a href="#product">Product</a><a href="#faq">FAQ</a><a href="coming-soon.html">Contact</a></nav>
+  <nav aria-label="Social"><a data-link="instagram" target="_blank" rel="noopener">Instagram</a><a data-link="youtube" target="_blank" rel="noopener">YouTube</a></nav>
+  
+  <nav aria-label="Legal"><a href="coming-soon.html">Privacy Policy</a><a href="coming-soon.html">Terms</a><a href="coming-soon.html">Refund Policy</a></nav>
+</div></footer>
+
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Preview">
+  <button class="lb-x" id="lbX" aria-label="Close">&times;</button>
+  <button class="arr prev" id="lbP" aria-label="Previous">&#8249;</button>
+  <div class="box" id="lbBox"></div>
+  <button class="arr next" id="lbN" aria-label="Next">&#8250;</button>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="home.js"></script>
+</body>
+</html>

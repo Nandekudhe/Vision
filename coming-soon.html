@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coming Soon — Digital Product Store</title>
+<meta name="description" content="Something exciting is on the way.">
+<meta name="theme-color" content="#07070b">
+
+<style>
+/* ===== BASE TOKENS & STYLES ===== */
+:root {
+  --bg: #07070b;
+  --bg2: #0d0d15;
+  --card: #12121c;
+  --line: rgba(255, 255, 255, 0.09);
+  --tx: #f5f5f7;
+  --mu: #9a9ab0;
+  --a: #8b5cf6;
+  --b: #ec4899;
+  --c: #f59e0b;
+  --grad: linear-gradient(120deg, var(--a), var(--b) 55%, var(--c));
+  --nav: 68px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--tx);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+
+.wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
+.narrow { width: min(760px, 100% - 40px); }
+.small { font-size: .85rem; }
+.mu { color: var(--mu); }
+
+/* Ambient background glows */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .32;
+  pointer-events: none;
+}
+.g1 {
+  width: 420px;
+  height: 420px;
+  background: var(--a);
+  top: -80px;
+  right: -60px;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+.g2 {
+  width: 340px;
+  height: 340px;
+  background: var(--b);
+  bottom: -100px;
+  left: -80px;
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  to { transform: translate3d(40px, 30px, 0) scale(1.15); }
+}
+
+/* Page Layout */
+.cs-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Nav */
+.nav {
+  height: var(--nav);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 10;
+}
+.nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1180px, 100% - 40px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -.02em;
+}
+.logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--grad);
+  overflow: hidden;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9em 1.7em;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: box-shadow .3s, background .3s;
+}
+.btn-p {
+  background: var(--grad);
+  background-size: 200% 200%;
+  animation: grad 6s ease infinite;
+  box-shadow: 0 10px 30px -8px rgba(236, 72, 153, .6);
+}
+.btn-p:hover {
+  box-shadow: 0 16px 44px -8px rgba(236, 72, 153, .8);
+}
+.btn-g {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .04);
+}
+.btn-g:hover {
+  background: rgba(255, 255, 255, .1);
+}
+@keyframes grad { 50% { background-position: 100% 50%; } }
+
+/* Centered Card Content */
+.cs-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 6vw, 64px) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-card {
+  max-width: 620px;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+  padding: clamp(36px, 6vw, 64px) clamp(20px, 5vw, 44px);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.16), transparent 65%),
+    linear-gradient(var(--card), var(--card)) padding-box,
+    var(--grad) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: .4em 1em;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .05);
+  font-size: .85rem;
+  color: var(--mu);
+  margin-bottom: 20px;
+}
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad);
+  box-shadow: 0 0 10px var(--b);
+  animation: cs-pulse 2s infinite ease-in-out;
+}
+@keyframes cs-pulse {
+  0%, 100% { opacity: .4; transform: scale(.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.cs-subtitle {
+  font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.cs-lead {
+  color: var(--mu);
+  font-size: 1.05rem;
+  max-width: 44ch;
+  margin: 0 auto 32px;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  footer .wrap { justify-content: center; text-align: center; }
+}
+</style>
+</head>
+<body class="cs-page">
+  <i class="glow g1" aria-hidden="true"></i>
+  <i class="glow g2" aria-hidden="true"></i>
+
+  <!-- Header -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="index.html" class="brand">
+        <i class="logo"><img src="logo.png" alt="Logo"></i>
+        <span>Digital Product Store</span>
+      </a>
+      <div>
+        <a href="index.html" class="btn btn-g" style="padding: .5em 1.2em; font-size: .88rem;">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Coming Soon Card -->
+  <main class="cs-main">
+    <div class="wrap narrow">
+      <div class="cs-card">
+        <span class="badge">COMING SOON</span>
+        <h1 class="cs-subtitle">Something exciting is on the way.</h1>
+        <p class="cs-lead">We're currently working on this section. Check back soon for updates.</p>
+        <a href="index.html" class="btn btn-p">&larr; Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <p class="mu small">&copy; <span id="yr"></span> Digital Product Store. All rights reserved.</p>
+      <nav style="display: flex; gap: 20px;">
+        <a href="index.html#product" class="mu small">Product</a>
+        <a href="index.html#faq" class="mu small">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const yr = document.getElementById('yr');
+    if (yr) yr.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

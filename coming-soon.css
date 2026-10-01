@@ -1,0 +1,109 @@
+/* ===== COMING SOON LAYOUT & CARD ===== */
+.cs-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+.cs-nav-static {
+  position: relative;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+
+.cs-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 6vw, 64px) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-card {
+  position: relative;
+  max-width: 640px;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+  padding: clamp(36px, 6vw, 64px) clamp(24px, 5vw, 48px);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.18), transparent 60%),
+    linear-gradient(var(--card), var(--card)) padding-box,
+    var(--grad) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pulse indicator dot inside the badge */
+.cs-pulse-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-pulse-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad);
+  box-shadow: 0 0 10px var(--b);
+  animation: cs-pulse 2s infinite ease-in-out;
+}
+
+@keyframes cs-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.cs-subtitle {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  margin: 12px 0 14px;
+}
+
+.cs-lead {
+  color: var(--mu);
+  font-size: 1.05rem;
+  max-width: 44ch;
+  margin: 0 auto 32px;
+}
+
+.cs-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .cs-footer .wrap {
+    justify-content: center;
+    text-align: center;
+  }
+}

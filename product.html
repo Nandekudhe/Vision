@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product</title>
+<meta name="description" content="Digital product details.">
+<meta name="theme-color" content="#07070b">
+<!-- product.css is fully standalone: this page needs only product.css and product.js -->
+<link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important}</style></noscript>
+</head>
+<body>
+
+<header class="nav" id="nav"><div class="wrap">
+  <a href="index.html" class="brand"><i class="logo"><img src="logo.png" alt="Logo"></i><span data-cfg="brand"></span></a>
+    <!-- 3-DOTS BUTTON -->
+  <button class="dots-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- DROPDOWN MENU -->
+  <nav class="menu-dropdown" id="menuDropdown">
+    <a href="index.html" class="menu-item">Home</a>
+    <a href="#highlights" class="menu-item">Features</a>
+    <a href="#faq" class="menu-item">FAQ</a>
+    <a href="#contact" class="menu-item">Contact</a>
+  </nav>
+
+</div></header>
+
+<main>
+<!-- 1. CREATIVE SHOWCASE (16:9). Edit the image list in product.js → CONFIG.slides -->
+<section class="shot" aria-label="Product creatives"><div class="wrap">
+  <div class="reel" id="reel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Product creatives">
+    <div class="slides" id="slides"></div>
+    <button class="arr prev" id="prev" aria-label="Previous creative">&#8249;</button>
+    <button class="arr next" id="next" aria-label="Next creative">&#8250;</button>
+    <div class="dots" id="dots"></div>
+  </div>
+</div></section>
+
+<!-- 2. PRODUCT INFO. Text comes from product.js → CONFIG -->
+<section class="info"><div class="wrap info-grid">
+  <div class="reveal">
+    <h1 data-cfg="productName"></h1>
+    <p class="tagline" data-cfg="tagline"></p>
+    <p class="mu desc" data-cfg="description"></p>
+  </div>
+  <aside class="buy reveal" aria-label="Purchase">
+    <div class="price-row"><b class="price" data-price></b><s class="orig" data-orig></s><span class="off" data-off></span></div>
+    <!-- PAYMENT: every [data-buy] button runs startCheckout() in product.js -->
+    <button class="btn btn-p magnetic" data-buy>Get It Now</button>
+    <ul class="incl" id="highlights"></ul>
+  </aside>
+</div></section>
+
+<!-- 3. BENEFITS (edit CONFIG.benefits) -->
+<section class="alt"><div class="wrap">
+  <div class="head reveal"><h2>Why you'll like it</h2></div>
+  <div class="grid" id="benefits"></div>
+</div></section>
+
+<!-- 4. FAQ (edit CONFIG.faq) -->
+<section id="faq"><div class="wrap narrow">
+  <div class="head reveal"><h2>Questions</h2></div>
+  <div id="faqList"></div>
+</div></section>
+
+<!-- 5. REVIEWS: DEMO PLACEHOLDERS. Edit or delete CONFIG.reviews -->
+<section class="alt" id="reviewsSection"><div class="wrap">
+  <div class="head reveal"><h2>Customer reviews</h2><p class="mu small" id="reviewsNote"></p></div>
+  <div class="grid" id="reviews"></div>
+</div></section>
+
+<!-- 6. FINAL CTA -->
+<section><div class="wrap">
+  <div class="cta-box reveal">
+    <h2 data-cfg="finalHeadline"></h2>
+    <p class="lead" data-cfg="finalText"></p>
+    <button class="btn btn-p magnetic" data-buy>Get It Now</button>
+  </div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap foot">
+  <div><b class="brand" data-cfg="brand"></b><p class="mu small">&copy; <span id="yr"></span> All rights reserved.</p></div>
+  <nav aria-label="Footer"><a href="index.html">Home</a><a href="#faq">FAQ</a><a data-link="contact">Contact</a></nav>
+  <nav aria-label="Social"><a data-link="instagram" target="_blank" rel="noopener">Instagram</a><a data-link="youtube" target="_blank" rel="noopener">YouTube</a></nav>
+  <nav aria-label="Legal"><a data-link="privacy">Privacy Policy</a><a data-link="terms">Terms</a><a data-link="refund">Refund Policy</a></nav>
+</div></footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
